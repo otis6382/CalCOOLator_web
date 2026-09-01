@@ -1,22 +1,34 @@
-*CalCOOLator 2.0*
+# CalCOOLator 2.5
+
 Cute and functional web calculator!
+
 This is basically the prettier and slightly less cursed version of my first calculator project.
 
-For now, it can:
-- Add
-- Subtract
-- Multiply
-- Divide
-- Work with decimals
-- Use percentages
-- Change number signs
-- Clear everything when you mess up
-- Prevent division by zero from completely ruining the vibe
+## Features
 
-Built with:
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Decimals
+- Percentages
+- Positive/negative numbers
+- Chained operations
+- Repeated `=` operations
+- Division by zero protection
+
+## Built with
+
 - HTML
 - CSS
 - JavaScript
 
-Still simple for now.
-I hope nothing weird happens to it later.
+## Current version
+
+**2.5**
+
+Improved calculator logic, fixed chained operations, added repeated operations with `=`, and started the visual redesign.
+
+Next stop: **Frutiger Aero.**
+
+I hope nothing weird happens to it later. Again...
