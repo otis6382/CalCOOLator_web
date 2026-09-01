@@ -1,6 +1,9 @@
-let primeirNumero = null;
+let primeiroNumero = null;
 let operacao = null;
 let aguardandoSegundoNumero = false;
+let ultimaOperacao = null;
+let ultimoSegundoNumero = null;
+
 
 const display = document.getElementById("display");
 
@@ -58,44 +61,70 @@ const operadores = document.querySelectorAll(".operator");
 
 operadores.forEach(function (botao) {
     botao.addEventListener("click", function () {
+        if (
+            primeiroNumero !== null &&
+            operacao !== null &&
+            !aguardandoSegundoNumero
+        ) {
+            const segundoNumero = Number(display.textContent);
+            let resultado;
 
-        primeiroNumero = Number(display.textContent);
+            if (operacao === "+") resultado = primeiroNumero + segundoNumero;
+            else if (operacao === "-") resultado = primeiroNumero - segundoNumero;
+            else if (operacao === "x") resultado = primeiroNumero * segundoNumero;
+            else if (operacao === "÷") resultado = primeiroNumero / segundoNumero;
+
+            display.textContent = resultado;
+            primeiroNumero = resultado;
+        } else {
+            primeiroNumero = Number(display.textContent);
+        }
+
         operacao = botao.textContent;
         aguardandoSegundoNumero = true;
-
-        
     })
 })
 
 const igual = document.getElementById("equals");
 
 igual.addEventListener("click", function () {
-    const segundoNumero = Number(display.textContent);
+    let segundoNumero;
+    let operacaoUsada;
 
-    let resultado
-
-    if (operacao === "+") {
-        resultado = primeiroNumero + segundoNumero;
+    if (operacao !== null && primeiroNumero !== null) {
+        segundoNumero = Number(display.textContent);
+        operacaoUsada = operacao;
+    } else if (ultimaOperacao !== null && ultimoSegundoNumero !== null) {
+        segundoNumero = ultimoSegundoNumero;
+        operacaoUsada = ultimaOperacao;
+    } else {
+        return;
     }
 
-    else if (operacao === "-") {
-        resultado = primeiroNumero - segundoNumero;
-    }
+    let resultado;
 
-    else if (operacao === "x") {
-        resultado = primeiroNumero * segundoNumero;
-    }
-
-    else if (operacao === "÷") {
+    if (operacaoUsada === "+") resultado = primeiroNumero + segundoNumero;
+    else if (operacaoUsada === "-") resultado = primeiroNumero - segundoNumero;
+    else if (operacaoUsada === "x") resultado = primeiroNumero * segundoNumero;
+    else if (operacaoUsada === "÷") {
         if (segundoNumero === 0) {
             display.textContent = "Impossivel dividir por zero idiota!";
             return;
         }
+
         resultado = primeiroNumero / segundoNumero;
     }
 
     display.textContent = resultado;
-})
+
+    primeiroNumero = resultado;
+
+    ultimaOperacao = operacaoUsada;
+    ultimoSegundoNumero = segundoNumero;
+
+    operacao = null;
+    aguardandoSegundoNumero = true;
+});
 
 const clear = document.getElementById("clear");
 

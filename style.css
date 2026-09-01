@@ -1,5 +1,6 @@
+@import url("https://cdn.jsdelivr.net/npm/dseg@0.46.0/css/dseg.css");
+
 body {
-    background-color:#001D57;
 
     margin: 0;
     min-height: 100vh;
@@ -8,31 +9,75 @@ body {
     justify-content: center;
     align-items: center;
 
+        background: linear-gradient(
+        180deg,
+        #4ea8ff 0%,
+        #87d9ff 55%,
+        #77d85a 100%
+    );
+
 }
 
 .calculator {
     width: 90%;
     max-width: 420px;
 
-    background-color: whitesmoke;
-
     padding: 20px;
-    border-radius: 20px;
+
     box-sizing: border-box;
+
+
+
+   background: linear-gradient(
+        180deg,
+        rgba(130, 220, 255, 0.9),
+        rgba(20, 110, 190, 0.9)
+    );
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 28px;
+
+    box-shadow:
+        inset 0 3px 8px rgba(255, 255, 255, 0.7),
+        inset 0 -5px 10px rgba(0, 50, 120, 0.35),
+        0 8px 18px rgba(0, 40, 100, 0.35);
+    
 
 }
 
 .display {
-    background-color:#001D57;
-    color: white;
+    background: linear-gradient(
+        180deg,
+        #061a3a 0%,
+        #0b2d5f 100%
+    );
 
-    font-size: 2rem;
+    color: #87d9ff;
+
+    font-family: "DSEG7-Classic", monospace;
+    font-size: 3rem;
+    font-weight: bold;
     text-align: right;
+    letter-spacing: 3px;
+
+    min-height: 60px;
 
     padding: 20px;
     margin-bottom: 20px;
     
     border-radius: 10px;
+
+    border: 2px solid rgba(135, 217, 255, 0.8);
+
+    box-shadow:
+        inset 0 0 12px rgba(0, 0, 0, 0.6),
+        0 0 12px rgba(135, 217, 255, 0.7),
+        0 0 22px rgba(135, 217, 255, 0.35);
+
+        text-shadow:
+        0 0 5px #87d9ff,
+        0 0 12px #87d9ff;
 }
 
 .buttons {
@@ -43,8 +88,48 @@ body {
 
 button {
     padding: 20px;
+
     font-size: 1.4rem;
-    border-radius: 10px;
+
     border: none;
+    border-radius: 10px;
+    
     cursor: pointer;
+
+    background: linear-gradient(
+        180deg,
+        #f8fdff 0%,
+        #c8ecff 45%,
+        #73c8f5 100%
+    );
+
+    box-shadow:
+        inset 0 3px 4px rgba(255, 255, 255, 0.9),
+        inset 0 -4px 6px rgba(0, 80, 150, 0.25),
+        0 4px 6px rgba(0, 40, 100, 0.25);
+
+    transition:
+        background 0.08s,
+        transform 0.08s,
+        box-shadow 0.08s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+button:active {
+    transform: translateY(2px);
+
+    background: linear-gradient(
+        180deg,
+        #b9dceb,
+        #8fbfd8
+    );
+
+    box-shadow: 
+        inset 0 3px 6px rgba(0, 50, 100, 0.25),
+        0 1px 2px rgba (0, 40, 100, 0.2);
+
 }
